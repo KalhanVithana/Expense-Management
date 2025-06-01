@@ -59,14 +59,30 @@ The backend uses a **microservices architecture** deployed as a **mono-lambda** 
 | Deployment   | Serverless (AWS Lambda / Vercel)  |
 
  ### ✅ Screenshots
-![ecceded](https://github.com/user-attachments/assets/f1cf5380-0ee6-42f2-86a9-a76216170898)
-![Reachlimit](https://github.com/user-attachments/assets/2ee3746f-0252-4b4a-9dd7-d1fd23e89891)
-![Searcj](https://github.com/user-attachments/assets/692b4a11-6abd-4598-9c2d-4403ca94e06f)
-![LoginPagr](https://github.com/user-attachments/assets/15a3ca9c-ed77-4298-9f53-9d050c44b852)
-![DashBoard](https://github.com/user-attachments/assets/4821f989-112c-4bca-9a05-49e7fec758f9)
-![edit page](https://github.com/user-attachments/assets/c9e8590a-18b5-42b2-8b9c-4606e3ba149e)
-![empty daya](https://github.com/user-attachments/assets/91de709e-e99c-453d-9223-ed7be255df2c)
-![table empty](https://github.com/user-attachments/assets/eaf1d381-e247-4fb8-a4a2-d3d3d065d344)
-![data](https://github.com/user-attachments/assets/ba156d0d-1d5c-4eff-a85d-37694a6f3061)
+
+### Responsive Mobile
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/3e051a7e-16eb-4f26-a88d-60f21ba0ceab" width="250" alt="Mobile 1"/>
+  <img src="https://github.com/user-attachments/assets/b64a0ba2-d328-418c-9801-f30de29ac0f2" width="250" alt="Mobile 2"/>
+  <img src="https://github.com/user-attachments/assets/a34bf164-c604-4b63-af4c-46b771fd99fb" width="250" alt="Mobile 3"/>
+</div>
+
+---
+
+### Desktop View
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f1cf5380-0ee6-42f2-86a9-a76216170898" width="400" alt="Exceeded"/>
+  <img src="https://github.com/user-attachments/assets/2ee3746f-0252-4b4a-9dd7-d1fd23e89891" width="400" alt="Reach Limit"/>
+  <img src="https://github.com/user-attachments/assets/692b4a11-6abd-4598-9c2d-4403ca94e06f" width="400" alt="Search"/>
+  <img src="https://github.com/user-attachments/assets/15a3ca9c-ed77-4298-9f53-9d050c44b852" width="400" alt="Login Page"/>
+  <img src="https://github.com/user-attachments/assets/4821f989-112c-4bca-9a05-49e7fec758f9" width="400" alt="Dashboard"/>
+  <img src="https://github.com/user-attachments/assets/c9e8590a-18b5-42b2-8b9c-4606e3ba149e" width="400" alt="Edit Page"/>
+  <img src="https://github.com/user-attachments/assets/91de709e-e99c-453d-9223-ed7be255df2c" width="400" alt="Empty Data"/>
+  <img src="https://github.com/user-attachments/assets/eaf1d381-e247-4fb8-a4a2-d3d3d065d344" width="400" alt="Table Empty"/>
+  <img src="https://github.com/user-attachments/assets/ba156d0d-1d5c-4eff-a85d-37694a6f3061" width="400" alt="Data View"/>
+</div>
+
 
  
