@@ -1,0 +1,64 @@
+{
+  "app.title": "Personal Expense Tracker",
+  "app.welcomeMessage": "Welcome back, {{name}}!",
+  "app.logout": "Logout",
+
+  "buttons.addExpense": "Add Expense",
+  "buttons.updateExpense": "Update Expense",
+  "buttons.deleteExpense": "Delete",
+  "buttons.submit": "Submit",
+  "buttons.cancel": "Cancel",
+
+  "errors.requiredField": "{{field}} is required",
+  "errors.invalidAmount": "Please enter a valid amount",
+  "errors.loginFailed": "Login failed. Please try again.",
+
+  "dashboard.monthlyLimit": "Monthly Limit",
+  "dashboard.totalExpenses": "Total Expenses",
+  "dashboard.alertThreshold": "Warning! You have reached 90% of your monthly limit.",
+  "dashboard.expensePattern": "Expense Pattern",
+
+  "filters.all": "All",
+  "filters.food": "Food",
+  "filters.transport": "Transport",
+  "filters.entertainment": "Entertainment",
+  "filters.filterByDate": "Filter by Date",
+
+  "title.signUp": "Sign Up",
+  "title.login": "Log In",
+  "title.expensesForm": "Expense Form",
+
+  "signup.needLoginMessage": "Already have an account? Please log in.",
+
+  "menu.dashboard": "Dashboard",
+  "menu.expenses": "Expenses",
+  "menu.addExpense": "Add Expense",
+  "menu.settings": "Settings",
+
+  "aria.dashboard": "Go to Dashboard",
+  "aria.expenses": "View Expenses",
+  "aria.addExpense": "Add a New Expense",
+  "aria.settings": "Open Settings",
+
+  "content.dashboard": "Dashboard Content",
+  "content.expenses": "Expenses Content",
+  "content.addExpense": "Add Expense Content",
+  "content.settings": "Settings Content",
+  "content.default": "Please select a menu item.",
+
+  "expense.name": "Expense Name",
+  "expense.amount": "Amount",
+  "expense.date": "Date",
+  "expense.category": "Category",
+  "expense.notes": "Notes",
+
+  "expense.namePlaceholder": "Enter expense name",
+  "expense.amountPlaceholder": "Enter amount",
+  "expense.notesPlaceholder": "Additional notes",
+  "expense.datePlaceholder": "MM/DD/YYYY",
+  "expense.category.food": "Food",
+  "expense.category.transport": "Transport",
+  "expense.category.utilities": "Utilities",
+  "expense.category.other": "Other"
+  
+}
