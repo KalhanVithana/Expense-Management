@@ -3,6 +3,18 @@ service: auth-service
 provider:
   name: aws
   runtime: nodejs20.x
+  region: ap-south-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
+      Resource: "*"
+  environment:
+    MONGODB_URI: ${ssm:/mongo_url}
+    ACCESS_TOKEN_SECRET: ${ssm:/access_token}
+    REFRESH_TOKEN_SECRET: ${ssm:/refresh_token}
 
 plugins:
   - serverless-offline
@@ -13,7 +25,6 @@ custom:
     httpPort: 3002
     lambdaPort: 3006
 
-
 functions:
   api:
     handler: handler.handler
@@ -22,4 +33,9 @@ functions:
       - http:
           path: /{proxy+}
           method: any
-          cors: true
+          cors:
+            origin: http://frontendhost1.s3-website.ap-south-1.amazonaws.com
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: true

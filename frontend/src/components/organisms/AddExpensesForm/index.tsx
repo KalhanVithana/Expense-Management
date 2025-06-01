@@ -52,12 +52,15 @@ const fields: FormField[] = [
 type ExpensesFormProps = {
   onSubmit: (data: Record<string, string>) => void;
    initialValues?: Record<string, string>; 
+   className?:string
 };
 
-const ExpensesForm: React.FC<ExpensesFormProps> = ({ onSubmit ,initialValues}) => {
+const ExpensesForm: React.FC<ExpensesFormProps> = ({ onSubmit ,initialValues,className}) => {
   const { formatMessage: t } = useIntl();
   const title = t({ id: 'title.expensesForm' });
-
+  const submitText = t({ id: 'buttons.submit' });
+  console.log("initialValues",initialValues);
+  
   const localizedFields = fields.map((field) => ({
     ...field,
     label: t({ id: field.label }),
@@ -71,12 +74,12 @@ const ExpensesForm: React.FC<ExpensesFormProps> = ({ onSubmit ,initialValues}) =
   }));
 
   return (
-    <div className="w-auto mx-auto p-6 max-w-lg bg-white">
+    <div className={`w-auto mx-auto p-6 max-w-lg bg-white rounded-lg m-10 ${className}`}>
       <Title text={title} className="text-2xl font-bold mb-6" />
       <DynamicForm
         fields={localizedFields}
         onSubmit={onSubmit}
-        text={title}
+        text={submitText}
         className="w-full !text-md"
         initialValues={initialValues}
       />

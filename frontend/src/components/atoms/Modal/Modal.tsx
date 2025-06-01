@@ -16,7 +16,7 @@ const Modal: React.FC<BasicModalProps> = ({
   visible,
   onCancel,
   onOk,
-  title = "Modal",
+  title = "",
   okText = "OK",
   cancelText = "Cancel",
   confirmLoading = false,
@@ -31,6 +31,7 @@ const Modal: React.FC<BasicModalProps> = ({
       okText={okText}
       cancelText={cancelText}
       confirmLoading={confirmLoading}
+      footer={null}
     >
       {children}
     </AntModal>

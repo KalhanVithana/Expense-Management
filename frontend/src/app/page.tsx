@@ -1,13 +1,21 @@
 'use client'
-import SignUpForm from "@/src/components/organisms/SignupForm";
-import SplitLayout from "@/src/components/templates/SplitLayout";
+
+import { useSelector } from "react-redux";
+import { useNavigation } from "../hooks/navigation";
+import { ROUTES } from "../constants/routesPath";
+import { useEffect } from "react";
+import { RootState } from "../lib/store";
 export default function Home() {
-  return (
-    <>
-    <SplitLayout
-      leftContent={<h2 className="text-white text-4xl">Welcome to Signup</h2>}
-      rightContent={<SignUpForm onSubmit={(data) => console.log('Form data:', data)} />}
-    />
-    </>
-  );
+  const {navigateTo} = useNavigation();
+  const isLoggedIn = useSelector((state:RootState) => state?.user?.isLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigateTo(ROUTES.DASHBOARD)
+    } else {
+      navigateTo(ROUTES.LOGIN);
+    }
+  }, [isLoggedIn, navigateTo]);
+
+  return null; 
 }

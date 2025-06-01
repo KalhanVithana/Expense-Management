@@ -6,6 +6,7 @@ import Header from "@/src/components/organisms/Header";
 import AntdStyledComponentsRegistry from "../lib/AntdStyledComponentsRegistry"; 
 import ReactQueryProvider from "@/src/providers/query-provider";
 import { NotificationProvider } from "../providers/notificationProvider";
+import { ProviderWrapper } from "../lib/provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,13 +38,16 @@ export default function RootLayout({
         <ReactIntlProvider locale={locale}>
           <AntdStyledComponentsRegistry>
              <NotificationProvider>
+              <ProviderWrapper>
             <body
               className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-100`}
             >
               <Header />
               {children}
             </body>
+            </ProviderWrapper>
             </NotificationProvider>
+            
           </AntdStyledComponentsRegistry>
         </ReactIntlProvider>
       </ReactQueryProvider>
