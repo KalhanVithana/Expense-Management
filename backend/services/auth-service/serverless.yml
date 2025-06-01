@@ -1,0 +1,25 @@
+service: auth-service
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+custom:
+  serverless-offline:
+    httpPort: 3002
+    lambdaPort: 3006
+
+
+functions:
+  api:
+    handler: handler.handler
+    timeout: 15
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
