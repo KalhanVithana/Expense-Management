@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@tailwind utilities;
+@import 'antd/dist/reset.css';
+@theme  {
+   --color-indigo-light:#818CF8;
+   --color-gray-light:#E5E7EB;
+
+}
+
+.ant-card-body {
+  padding: 0 !important;
+}
