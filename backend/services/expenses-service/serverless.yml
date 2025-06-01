@@ -8,7 +8,17 @@ provider:
   runtime: nodejs20.x
   region: ap-south-1
   stage: ${opt:stage,'dev'}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
+      Resource: "*"
   environment:
+    MONGODB_URI: ${ssm:/mongo_url}
+    ACCESS_TOKEN_SECRET: ${ssm:/access_token}
+    REFRESH_TOKEN_SECRET: ${ssm:/refresh_token}
 
 custom:
   serverless-offline:
@@ -28,23 +38,58 @@ functions:
       - http: 
           path: expenses
           method: get
-          cors: true
+          cors:
+            origin: http://frontendhost1.s3-website.ap-south-1.amazonaws.com
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
       - http: 
           path: expenses/{id}
           method: get
-          cors: true
+          cors:
+            origin: http://frontendhost1.s3-website.ap-south-1.amazonaws.com
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
       - http: 
           path: /expenses/create
           method: post
-          cors: true
+          cors:
+            origin: http://frontendhost1.s3-website.ap-south-1.amazonaws.com
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
       - http: 
           path: /expenses/update
           method: put
-          cors: true
+          cors:
+            origin: http://frontendhost1.s3-website.ap-south-1.amazonaws.com
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
       - http: 
           path: expenses/{id}
           method: delete
-          cors: true
+          cors:
+            origin: http://frontendhost1.s3-website.ap-south-1.amazonaws.com
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
+          
+      - http: 
+          path: /expenses/limit/{id}
+          method: get
+          cors:
+            origin: http://frontendhost1.s3-website.ap-south-1.amazonaws.com
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
   
 
 # functions:

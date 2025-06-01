@@ -1,4 +1,3 @@
-import { ColumnsType } from "antd/es/table";
 import { FilterSectionTable } from "../components/molecules/FilterSection/FilterSection";
 
 interface RawExpense {
@@ -17,7 +16,7 @@ interface CleanExpense {
 
 export function constructExpenseTable(rawExpenses: RawExpense[]) {
 
-  const dataSource: CleanExpense[] = rawExpenses.map((exp) => ({
+  const dataSource: Partial<CleanExpense>[] = rawExpenses.map((exp) => ({
     key: exp._id,
     name:exp.expenseName ,
     notes: exp.notes,
@@ -37,19 +36,19 @@ export function constructExpenseTable(rawExpenses: RawExpense[]) {
     if (clearFilters) clearFilters();
   };
 
-  const searchConfig = {
+  const searchConfig :any = {
     handleSearch,
     handleReset,
   };
 
 
-  const columns: ColumnsType<CleanExpense> = [
+  const columns: Partial<any> = [
       {
       title: "Expense",
       dataIndex: "name",
       key: "expenseName",
      
-  onFilter: (value, record) => record.name === value,
+  onFilter: (value, record) => record?.name === value,
      ...FilterSectionTable('name', searchConfig),
     },
     {

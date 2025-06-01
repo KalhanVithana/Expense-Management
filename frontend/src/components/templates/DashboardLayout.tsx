@@ -24,12 +24,14 @@ interface DashboardLayoutProps {
   onSubmit?: (data: Record<string, string>) => void;
   dataSource?: Record<string, any>[];
   columns?: ColumnsType<Record<string, any>>;
+  selectedTab:(key:string)=>void
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   onSubmit,
   dataSource = [],
   columns = [],
+  selectedTab
 }) => {
   const { formatMessage: t } = useIntl();
   const [collapsed, setCollapsed] = useState(false);
@@ -82,7 +84,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       label: t({ id: "app.logout" }),
       icon: <SettingOutlined />,
       path: "/logout",
-      ariaLabel: t({ id: "app.logouts" }),
+      ariaLabel: t({ id: "app.logout" }),
     },
   ];
 
@@ -90,7 +92,11 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
     switch (selectedKey) {
       case "dashboard":
         const pieData = getCategoryData(dataSource);
-        return <PieChart data={pieData} />;
+        const defaultEmptyData = [{ title: "No Data", value: 1, color: "#ccc" }];
+
+return pieData && pieData.length > 0
+  ? <PieChart data={pieData} />
+  : <PieChart data={defaultEmptyData} />;
 
       case "expenses":
         if (isMobile) {
@@ -102,7 +108,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
                   className="bg-white rounded-xl shadow-md p-4 border border-gray-200 flex flex-col justify-between"
                 >
                   <div className="space-y-2">
-                    {columns.map((col) => (
+                    {columns.map((col:any) => (
                       <div
                         key={String(col.key)}
                         className="flex justify-between text-sm"
@@ -143,9 +149,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       case "add-expense":
         return <ExpensesForm onSubmit={onSubmit} />;
 
-      case "logout":
-        return <div>{t({ id: "app.logout" }) || "Log out"}</div>;
-
+     
       default:
         return (
           <div>{t({ id: "content.default" }) || "Select a menu item"}</div>
@@ -165,7 +169,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       >
         <SidebarMenu
           items={menuItems}
-          onItemClick={(key) => setSelectedKey(key)}
+          onItemClick={(key) => {
+            setSelectedKey(key)
+            selectedTab(key)
+          }}
           selectedKey={[selectedKey]}
         />
       </Sider>

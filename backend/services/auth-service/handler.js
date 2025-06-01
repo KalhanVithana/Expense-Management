@@ -6,19 +6,19 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser'; 
 
 const app = express();
-
-
 connectDB()
-  .then(() => console.log("✅ DB connected"))
+  .then(() => console.log("DB connected"))
   .catch((err) => {
-    console.error("❌ DB connection failed", err);
+    console.error("DB connection failed", err);
     process.exit(1); 
   });
 
 app.use(cors({
-  origin: '*', 
-  credentials: true,
+  origin: true,         
+  credentials: true,    
 }));
+
+app.options('*', cors()); 
 
 app.use(express.json());
 app.use(cookieParser()); 

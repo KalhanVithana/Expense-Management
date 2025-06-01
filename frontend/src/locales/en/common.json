@@ -3,6 +3,8 @@
   "app.welcomeMessage": "Welcome back, {{name}}!",
   "app.logout": "Logout",
 
+  "app.welcome":"Welcome Back",
+
   "buttons.addExpense": "Add Expense",
   "buttons.updateExpense": "Update Expense",
   "buttons.deleteExpense": "Delete",

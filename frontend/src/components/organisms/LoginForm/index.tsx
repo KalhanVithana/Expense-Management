@@ -24,7 +24,7 @@ const fields: FormField[] = [
 ];
 
 type LoginFormProps = {
-  onSubmit: (data: Record<string, string>) => void;
+  onSubmit: (data: Record<any, any>) => any;
 };
 
 const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {

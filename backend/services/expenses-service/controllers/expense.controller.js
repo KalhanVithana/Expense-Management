@@ -174,3 +174,49 @@ export const deleteExpense = async (req, res) => {
     sendResponse(res, response);
   }
 };
+
+
+export const checkMonthlyLimitStatus = async (req, res) => {
+  try {
+   
+    const userId = req?.user?.id; 
+    const now = new Date();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+
+    const monthlyExpenses = await Expense.find({
+      userId,
+      date: {
+        $gte: new Date(currentYear, currentMonth, 1),
+        $lt: new Date(currentYear, currentMonth + 1, 1),
+      },
+    });
+
+    const totalMonthlyExpense = monthlyExpenses.reduce(
+      (sum, exp) => sum + exp.amount,
+      0
+    );
+
+    const MAX_MONTHLY_LIMIT = 10000.0;
+    const thresholdReached = totalMonthlyExpense >= 0.9 * MAX_MONTHLY_LIMIT;
+    const percent = (totalMonthlyExpense / MAX_MONTHLY_LIMIT) * 100;
+    const response = securityHeaders(
+      successResponse({
+        thresholdReached,
+        alert: thresholdReached
+          ? "You have reached 90%."
+          : null,
+        totalMonthlyExpense:percent,
+        maxMonthlyLimit: MAX_MONTHLY_LIMIT,
+      })
+    );
+
+    sendResponse(res, response);
+  } catch (err) {
+    console.error(err);
+    const response = securityHeaders(
+      errorResponse("Failed to check monthly limit status")
+    );
+    sendResponse(res, response);
+  }
+};

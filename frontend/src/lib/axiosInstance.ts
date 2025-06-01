@@ -21,9 +21,7 @@ const processQueue = (error: unknown, token: string | null = null) => {
 function getAccessToken() {
   return localStorage.getItem("accessToken");
 }
-function getRefreshToken() {
-  return localStorage.getItem("refreshToken");
-}
+
 function setAccessToken(token: string) {
   localStorage.setItem("accessToken", token);
 }
@@ -55,7 +53,7 @@ export const attachInterceptors = (instance: AxiosInstance) => {
       const originalRequest = error.config;
  
        if (
-      (error.response?.status === 401 || error.response?.status === 403) &&
+      (error.response?.status === 403) &&
       !originalRequest._retry
     ) {
         if (isRefreshing) {

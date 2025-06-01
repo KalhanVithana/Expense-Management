@@ -15,7 +15,7 @@ const PieChart: React.FC<Props> = ({ data }) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center md:items-start w-full max-w-[500px] h-auto md:h-[500px] px-4 md:px-0">
+    <div className="flex flex-col md:flex-row justify-between items-center md:items-start w-full max-w-[500px] h-auto md:h-[500px] px-4 md:px-0 p-10 lg:ml-10 md:ml-10 sm:ml-10">
       <div className="relative w-full max-w-[300px] md:w-[300px] md:h-[300px]">
         <Chart
           data={data}

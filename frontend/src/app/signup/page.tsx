@@ -9,10 +9,12 @@ import { isAxiosError } from 'axios';
 import { useNotificationAPI } from '@/src/providers/notificationProvider';
 import { useNavigation } from '@/src/hooks/navigation';
 import { ROUTES } from '@/src/constants/routesPath';
+import { useIntl } from 'react-intl';
 
 
 export default function SignupPage() {
   const {navigateTo} = useNavigation()
+    const { formatMessage } = useIntl();
    const api = useNotificationAPI();
 const { mutateAsync: signUp } = useMutation({
   mutationFn: userService.signUp,
@@ -35,7 +37,7 @@ const { mutateAsync: signUp } = useMutation({
    <>
     
     <SplitLayout
-      leftContent={<h2 className="text-white text-4xl">Welcome to Signup</h2>}
+      leftContent={<h1 className="text-white  text-3xl   font-extrabold">  {formatMessage({ id: 'app.welcome' })}</h1>}
       rightContent={<SignUpForm onSubmit={handleSubmit} />}
       
     /></>
